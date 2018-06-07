@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Properties>
+		<Property name="logpath">C:\\SELENIUM-AUTOMATION\\LOGS</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+
+		<RollingFile name="RollingFile" fileName="${logpath}/Selenium.logs" filePattern="${logpath}/Selenium_differentDAte.logs">
+			<Policies>
+				<OnStartupTriggeringPolicy />
+			</Policies>
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+
+		<Logger name="com.geniisys.automation.ParCreationTest" level="error" additivity="false">
+				<AppenderRef ref="Console" />
+		</Logger>
+
+		<Root level="trace">
+			<AppenderRef ref="RollingFile" />
+		</Root>
+
+	</Loggers>
+
+</Configuration>
